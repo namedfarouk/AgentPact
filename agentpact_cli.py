@@ -149,7 +149,7 @@ def resolve_ens(w3, name_or_address):
     """Resolve ENS name to address, or return address as-is."""
     if name_or_address.endswith(".eth"):
         print(f"Resolving ENS name: {name_or_address}")
-        ens_rpc = Web3(Web3.HTTPProvider("https://eth.llamarpc.com"))
+        ens_rpc = Web3(Web3.HTTPProvider("https://eth.drpc.org"))
         address = ens_rpc.ens.address(name_or_address)
         if address is None:
             print(f"Error: Could not resolve ENS name '{name_or_address}'")
