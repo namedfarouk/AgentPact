@@ -1,0 +1,78 @@
+{
+  "name": "AgentPact",
+  "description": "An autonomous agent that negotiates, commits to, and enforces freelance agreements through smart contracts on Base and Celo. Humans set boundaries. The agent operates within them.",
+  "version": "1.0.0",
+  "operator": {
+    "wallet": "0x4531a47445C0a0C6659a80280012B40baEf65Ca2",
+    "erc8004Identity": "https://basescan.org/tx/0xe341289e32720ce40edddc32eeff55f221de835985ede7fc7a8d5f03958e9cf9"
+  },
+  "supportedTools": [
+    {
+      "name": "agentpact_cli",
+      "description": "CLI tool for creating, funding, and managing on-chain freelance pacts",
+      "commands": ["create", "fund", "submit", "release", "dispute", "cancel", "refund", "status", "count"]
+    },
+    {
+      "name": "terminal",
+      "description": "Execute shell commands for file creation, code execution, and system operations"
+    },
+    {
+      "name": "memory",
+      "description": "Persistent memory across sessions for learning user preferences and project context"
+    },
+    {
+      "name": "skills",
+      "description": "Procedural memory system — loads reusable skill documents for recurring tasks"
+    },
+    {
+      "name": "web_search",
+      "description": "Search the web for current information and documentation"
+    },
+    {
+      "name": "file_operations",
+      "description": "Read, write, and manage files on the host system"
+    }
+  ],
+  "techStack": {
+    "agentFramework": "hermes-agent",
+    "model": "deepseek-v3.2",
+    "languages": ["python", "solidity"],
+    "chains": [
+      {
+        "name": "Base Sepolia",
+        "chainId": 84532,
+        "contract": "0x31BC2Ae5995bb31d63ED2Efd36587fC05A374127",
+        "explorer": "https://sepolia.basescan.org/address/0x31BC2Ae5995bb31d63ED2Efd36587fC05A374127"
+      },
+      {
+        "name": "Celo Sepolia",
+        "chainId": 11155420,
+        "contract": "0x430F6fC0c8A4C9b0490994d8e248DA85Bf22daFe",
+        "explorer": "https://celo-sepolia.blockscout.com/address/0x430F6fC0c8A4C9b0490994d8e248DA85Bf22daFe"
+      }
+    ],
+    "buildTools": ["foundry", "web3.py"],
+    "deployment": "forge create"
+  },
+  "taskCategories": [
+    "smart-contract-deployment",
+    "on-chain-escrow-management",
+    "freelance-agreement-negotiation",
+    "pact-lifecycle-management",
+    "multi-chain-deployment"
+  ],
+  "computeConstraints": {
+    "maxTokensPerRequest": 8192,
+    "maxConcurrentSubagents": 3,
+    "provider": "Nous Portal",
+    "costModel": "token-based credits"
+  },
+  "safetyGuardrails": [
+    "Never create a pact without explicit user approval for the escrow amount",
+    "Always confirm before releasing funds",
+    "Always show BaseScan/BlockScout link after any on-chain transaction",
+    "Validate all addresses before sending transactions",
+    "Reject transactions exceeding user-defined budget limits",
+    "Never expose private keys in logs or outputs"
+  ]
+}
