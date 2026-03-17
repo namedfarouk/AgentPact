@@ -12,6 +12,7 @@ import time
 
 try:
     from web3 import Web3
+    from web3.middleware import ExtraDataToPOAMiddleware
 except ImportError:
     print("Error: web3 not installed. Run: pip3 install web3")
     sys.exit(1)
@@ -144,6 +145,20 @@ def get_web3():
     return w3
 
 
+def resolve_ens(w3, name_or_address):
+    """Resolve ENS name to address, or return address as-is."""
+    if name_or_address.endswith(".eth"):
+        print(f"Resolving ENS name: {name_or_address}")
+        ens_rpc = Web3(Web3.HTTPProvider("https://eth.llamarpc.com"))
+        address = ens_rpc.ens.address(name_or_address)
+        if address is None:
+            print(f"Error: Could not resolve ENS name '{name_or_address}'")
+            sys.exit(1)
+        print(f"Resolved to: {address}")
+        return address
+    return Web3.to_checksum_address(name_or_address)
+
+
 def get_contract(w3):
     return w3.eth.contract(
         address=Web3.to_checksum_address(CONTRACT_ADDRESS),
@@ -216,7 +231,7 @@ def cmd_create(args):
     print()
 
     tx_func = contract.functions.createPact(
-        Web3.to_checksum_address(args.freelancer),
+        resolve_ens(w3, args.freelancer),
         deadline,
         args.description
     )
