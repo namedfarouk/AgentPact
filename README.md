@@ -173,7 +173,9 @@ AgentPact solves this by putting the enforcement layer on Ethereum, where no pla
 
 ## Author
 
-Built by [Farouk Adam](https://x.com/NamedFarouk) with [Hermes Agent](https://nousresearch.com/hermes-agent/).
+Built by [FK @NamedFarouk](https://x.com/NamedFarouk) with [Hermes Agent](https://nousresearch.com/hermes-agent/).
+
+Join my TG [@ClearBloq](https://t.me/ClearBloq)
 
 ## License
 
