@@ -40,11 +40,11 @@ Client's Agent                          Freelancer's Agent
 
 ## Contract
 
-- **Network:** Base Sepolia
+**Network:** Base Sepolia
 - **Address:** [`0x31BC2Ae5995bb31d63ED2Efd36587fC05A374127`](https://sepolia.basescan.org/address/0x31BC2Ae5995bb31d63ED2Efd36587fC05A374127)
 
 
-- **Network:** Celo Sepolia
+**Network:** Celo Sepolia
 - **Address:** [`0x430F6fC0c8A4C9b0490994d8e248DA85Bf22daFe`](https://celo-sepolia.blockscout.com/address/0x430F6fC0c8A4C9b0490994d8e248DA85Bf22daFe)
 - **Solidity:** 0.8.28
 - **License:** MIT
